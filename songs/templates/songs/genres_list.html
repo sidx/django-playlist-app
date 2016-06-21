@@ -1,0 +1,16 @@
+{% extends 'songs/base.html' %}
+{% block content %}
+	<div>
+		<h1><a href="/genres">Genres List</a></h1>
+	</div>
+	{% for genre in allGenres %}
+		<div>
+		{{ genre.id }}.
+		<a href="genre/{{genre.id}}">{{ genre.name }}</a>
+	
+		{% for song in genre.songs.all %}
+			<a href="track/{{song.id}}">{{song.title}}</a>
+		{% endfor %}
+		</div>
+	{% endfor %}
+{% endblock %}
